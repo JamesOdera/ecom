@@ -1,3 +1,28 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: transparent;
+  color: goldenrod;
+}
+
+
 h1
 {
   color: goldenrod;
@@ -16,7 +41,7 @@ h1
       width: 70%;
       margin-left: 190px;
       margin-top: 0;
-      margin-bottom: 130px;
+      margin-bottom: 155px;
   }
   a {
     text-decoration: none;
