@@ -2,3 +2,20 @@ h1
 {
   color: goldenrod;
 }
+.blog {
+      background-image: url("https://cdn.home-designing.com/wp-content/uploads/2017/11/black-and-yellow-twisted-cool-chairs.jpg");
+      background-size: cover;
+      text-align: center;
+      padding: 50px;
+  }
+
+  .box {
+      text-align: center;
+      border: 1px solid #ccc;
+      padding: 80px;
+      color: aliceblue;
+      width: 70%;
+      margin-left: 170px;
+      margin-top: 110px;
+      margin-bottom: 100px;
+  }
