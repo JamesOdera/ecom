@@ -3,6 +3,7 @@ import datetime as dt
 from django.contrib.auth.models import User
 
 
+
 class Category(models.Model):
     name = models.CharField(max_length =30)
 
@@ -43,3 +44,5 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
