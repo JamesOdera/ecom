@@ -20,6 +20,13 @@
         <h5 class="card-title">{{ object.author }} </h5>
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         <p class="card-text"><small class="text-muted">{{ object.pub_date|timesince }} ago </small></p>
+        {% if object.author == user %}
+        <div>
+        <a class="btn btn-secondary btn-sm mt-1 mb-1"  href="{% url 'post-update' object.id %}" > Update </a>
+        <a class="btn btn-danger btn-sm mt-1 mb-1"  href="{% url 'post-delete' object.id %}" > Delete </a>
+        </div>
+        {% endif %}
+        <br>
         <button class="btn btn-info">Add to Cart</button>
       </div>
     </div>
