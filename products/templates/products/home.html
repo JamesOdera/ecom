@@ -10,6 +10,13 @@
 <body>
     {% block content %}
     {{block.super}}
+
+    <div class="sidenav">
+      <h2>Executive</h2>
+      <h2>Office</h2>
+      <h2 style="color: orange;">Chair</h2>
+      <img src="https://www.ugoburo.ca/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/y/o/youweb.jpg" style="width:250px;height:350px;" >
+    </div>
     
     
           {% for product in object_list %}
@@ -22,9 +29,15 @@
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title"> {{ product.name }}</h5>
-                        <p class="card-text">{{ product.preview_text }}</p>
-                      <p class="card-text"><small class="text-muted">{{ post.pub_date|timesince }} ago </small></p>
+                        <h3 class="card-title" style="color: red;"> {{ product.name }}</h3>
+                        <h4 class="card-text" style="color: goldenrod;">{{ product.preview_text }}</h4>
+                      <p class="card-text"><small class="text-muted">  </small></p>
+                              <b>{% if product.discount_price %}
+                              <del>{{ product.price }}</del>
+                              <span>{{ product.discount_price }}</span>
+                              {% else %}
+                              <span>{{ product.price }}</span>
+                              {% endif %}</b>
                       <div class='card-footer text-center'>
                         <a href="cart/{{ product.slug }}" class="btn btn-success">Add to Cart</a>
                         <a href="remove/{{ product.slug }}" class="btn btn-danger">Remove from Cart</a>
