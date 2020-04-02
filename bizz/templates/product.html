@@ -49,11 +49,18 @@
   </div>
 </div>
 
+{% for item in items %}
+{{ item }}
+{% endfor %}
+
+
 {% for post in posts %}
 <div class="card mb-3" style="max-width: 700px;">
   <div class="row no-gutters">
     <div class="col-md-4">
+      <a href="{% url 'post-detail' post.id %}">
       <img src="{{ post.cover.url}}" style="width:150px;height:150px;" class="card-img" alt="...">
+    </a>
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -61,13 +68,16 @@
         <h5 class="card-title">{{ post.author }} </h5>
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         <p class="card-text"><small class="text-muted">{{ post.pub_date|timesince }} ago </small></p>
-        <button class="btn btn-info">Add to Cart</button>
+        <button class="btn btn-info">Add to Cart </button>
       </div>
     </div>
   </div>
 </div>
 
     {% endfor %}
+
+   
+
     {% endblock %}
 </body>
 </html>

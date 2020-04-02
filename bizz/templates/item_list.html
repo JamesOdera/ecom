@@ -1,0 +1,58 @@
+{%extends 'bizz/base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    {{block.super}}
+
+    
+    
+   <div class="card mb-3" style="max-width: 700px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,w_1460/gen-workflow%2Fproduct-listing%2F85095_XXX_v1" style="width:150px;height:150px;" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <button class="btn btn-info">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-3" style="max-width: 700px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="https://www.decoraid.com/wp-content/uploads/2018/08/unique-statement-making-couches-2019.jpg" style="width:150px;height:150px;" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ item.title }}</h5>
+        <h5> {{ item.get_category_display}}</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> 
+        <span class="badge badge-pill {{ item.get_label_display}-color}" ></span>
+        <p>S{{ item.price }}</p>
+        <button class="btn btn-info">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% for item in items %}
+{{ item }}
+{% endfor %}
+
+   
+
+    {% endblock %}
+</body>
+</html>

@@ -17,9 +17,17 @@
     <div class="col-md-8">
       <div class="card-body">
         <h2> {{ object.title }} </h2>
+        <h5> {{ post.get_category_display}}</h5>
         <h5 class="card-title">{{ object.author }} </h5>
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         <p class="card-text"><small class="text-muted">{{ object.pub_date|timesince }} ago </small></p>
+        {% if post.discount_price %}
+        <del>{{ post.price }}</del>
+        <span>{{ post.discount_price }}</span>
+        {% else %}
+        <span>{{ post.price }}</span>
+        {% endif %}
+        <span class="badge badge-pill {{ post.get_label_display}}" ></span>
         {% if object.author == user %}
         <div>
         <a class="btn btn-secondary btn-sm mt-1 mb-1"  href="{% url 'post-update' object.id %}" > Update </a>
@@ -27,7 +35,7 @@
         </div>
         {% endif %}
         <br>
-        <button class="btn btn-info">Add to Cart</button>
+        <button class="btn btn-info"><a href=" {{ object.get_add_to_cart_url }} ">Add to Cart</a> </button>
       </div>
     </div>
   </div>
