@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'bizz',
+    'products',
+    'cart',
     'bootstrap3',
     'users.apps.UsersConfig',
     'crispy_forms',

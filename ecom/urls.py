@@ -19,6 +19,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from users import views as user_views
+from products.views import Home
+from cart.views import add_to_cart, remove_from_cart
+app_name= 'mainapp'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +30,10 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('profile/', user_views.profile, name='profile'),
+    path('home', Home.as_view(), name='home'),
+    path('home', include('products.urls', namespace='mainapp')),
+    path('cart/<slug>', add_to_cart, name='cart'),
+    path('remove/<slug>', remove_from_cart, name='remove-cart'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

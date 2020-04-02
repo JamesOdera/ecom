@@ -66,14 +66,15 @@ class OrderPost(models.Model):
         return f"{self.quantity} of {self.post.title}"
 
 class Order(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
-    posts = models.ManyToManyField(OrderPost)
-    pub_date = models.DateTimeField(auto_now_add=True)
-    ordered_date = models.DateTimeField()
-    ordered = models.BooleanField(default=False)
+    pass
+#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
+#     posts = models.ManyToManyField(OrderPost)
+#     pub_date = models.DateTimeField(auto_now_add=True)
+#     ordered_date = models.DateTimeField()
+#     ordered = models.BooleanField(default=False)
 
 
-    def __str__(self):
-        return self.user.username
+#     def __str__(self):
+#         return self.user.username
 
 
