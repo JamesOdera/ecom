@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='pub_date',
-            field=models.DateTimeField(auto_now_add=True, default=1),
+            field=models.DateTimeField(auto_now_add=True, default='2012-09-04 06:00:00.000000-08:00'),
             preserve_default=False,
         ),
     ]
