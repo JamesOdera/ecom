@@ -155,7 +155,7 @@ h1
 }
 
 .sidenav {
-  height: 90%;
+  height: 80%;
   width: 280px;
   position: fixed;
   z-index: 1;
@@ -165,7 +165,7 @@ h1
   color: #333;
   overflow-x: hidden;
   padding-top: 50px;
-  margin-top: 100px;
+  margin-top: 150px;
   margin-left: 40px;
 }
 
