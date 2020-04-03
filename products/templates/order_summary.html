@@ -27,25 +27,46 @@
           <tbody>
             {% for orderitems in object.orderitems.all %}
             <tr>
-              <th scope="row">1</th>
+              <th scope="row"> {{ forloop.counter }} </th>
               <td> {{ orderitems.item }} </td>
               <td> 
                 {% if orderitems.item.discount_price %}
-                {{ orderitems.item.discount_price }}
+                 Ksh {{ orderitems.item.discount_price }}
                 {% else %}
-                {{ orderitems.item.price }}
+                Ksh {{ orderitems.item.price }}
                 {% endif %}  
               </td>
               <td> {{ orderitems.quantity }} </td>
               <td> 
                 {% if orderitems.item.discount_price %}
-                {{ orderitems.get_total_discount_item_price }}
+                Ksh {{ orderitems.get_total_discount_item_price }}
+                <span class="label label-primary">saving Ksh {{ orderitems.get_amount_saved }}</span>
                 {% else %}
-                {{ orderitems.get_total_item_price }}
+                Ksh {{ orderitems.get_total_item_price }}
                 {% endif %}
               </td> 
             </tr>
+            {% empty %}
+            <tr>
+              <td colspan="5" ><h1>Your Cart Is Empty</h1></td>
+            </tr>
+            <tr>
+              <td colspan="5">
+                <a class="btn btn-primary" style="float: right; margin-right: 5px;" href="{% url 'home' %}">Continue Shopping</a></td>
+              </td>
+            </tr>
             {% endfor %}
+            {% if object.get_total %}
+            <tr>
+              <td colspan="4"><b>Order Total</b></td>
+              <td> Ksh {{ object.get_total }} </td>
+            </tr>
+            <tr>
+              <td colspan="4">
+                <a class="btn btn-warning" style="float: right;" href="{% url 'checkout' %}">Proceed To Checkout</a>
+                <a class="btn btn-primary" style="float: right; margin-right: 5px;" href="{% url 'home' %}">Continue Shopping</a></td>
+            </tr>
+            {% endif %}
           </tbody> 
         </table>
       
