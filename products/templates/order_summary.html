@@ -1,0 +1,57 @@
+{%extends 'bizz/base.html'%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    {{block.super}}
+
+    <div class="table-responsive text-nowrap">
+         <h2>Order Summary</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Item Title</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total Item Price</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            {% for orderitems in object.orderitems.all %}
+            <tr>
+              <th scope="row">1</th>
+              <td> {{ orderitems.item }} </td>
+              <td> 
+                {% if orderitems.item.discount_price %}
+                {{ orderitems.item.discount_price }}
+                {% else %}
+                {{ orderitems.item.price }}
+                {% endif %}  
+              </td>
+              <td> {{ orderitems.quantity }} </td>
+              <td> 
+                {% if orderitems.item.discount_price %}
+                {{ orderitems.get_total_discount_item_price }}
+                {% else %}
+                {{ orderitems.get_total_item_price }}
+                {% endif %}
+              </td> 
+            </tr>
+            {% endfor %}
+          </tbody> 
+        </table>
+      
+      </div>
+      </div>
+      </div>
+    {% endblock %}
+</body>
+</html>
