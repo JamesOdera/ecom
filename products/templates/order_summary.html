@@ -44,6 +44,7 @@
                 {% else %}
                 Ksh {{ orderitems.get_total_item_price }}
                 {% endif %}
+                <a href="remove/{{ product.slug }}"><i class="fas fa-trash"></i></a>
               </td> 
             </tr>
             {% empty %}

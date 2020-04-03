@@ -20,7 +20,7 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from users import views as user_views
 from products.views import Home, OrderSummaryView
-from cart.views import add_to_cart, remove_from_cart
+from cart.views import add_to_cart, remove_from_cart, remove_single_item_from_cart
 app_name= 'mainapp'
 
 urlpatterns = [
@@ -35,6 +35,7 @@ urlpatterns = [
     path('cart/<slug>', add_to_cart, name='cart'),
     path('remove/<slug>', remove_from_cart, name='remove-cart'),
     path('order-summary/', OrderSummaryView.as_view(),name = 'order-summary'),
+    path('remove-item-from-cart/<slug>/', remove_single_item_from_cart, name='remove-single-item-from-cart'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
